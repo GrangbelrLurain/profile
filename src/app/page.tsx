@@ -1,8 +1,12 @@
-import Empty from "@/components/box/empty";
+"use client";
 import Container from "@/components/container";
-import Image from "next/image";
+import useMarkdowns from "@/lib/client/hook/use-markdowns";
+import Link from "next/link";
+import useSWR from "swr";
 
 export default function Home() {
+  const { markdowns } = useMarkdowns();
+  console.log(markdowns);
   return (
     <div className="flex flex-col gap-5">
       <Container className="w-full">
@@ -18,7 +22,8 @@ export default function Home() {
         <h2 className="font-logo_font">intro</h2>
         <p>안녕하세요, 개발팀 옥탑방 고양이입니다.</p>
       </Container>
-      <Container className="w-full">
+      <Container>{}</Container>
+      {/* <Container className="w-full">
         <h2></h2>
         <article className="grid grid-cols-3 gap-5">
           <div className="aspect-square rounded-md p-5 bg-gray-500 bg-opacity-50">
@@ -31,6 +36,20 @@ export default function Home() {
         </article>
         <article>
           <button className="btn">문의하기</button>
+        </article>
+      </Container> */}
+      <Container className="w-full">
+        <h2 className="font-logo_font">blog</h2>
+        <article className="flex flex-col gap-2">
+          {markdowns?.map(({ name, sha }) => {
+            return (
+              <Link key={sha} href={`/blog/${name}`}>
+                <p className="px-5 py-2 rounded-md bg-gray-500 bg-opacity-50">
+                  {name}
+                </p>
+              </Link>
+            );
+          })}
         </article>
       </Container>
     </div>

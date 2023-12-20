@@ -5,6 +5,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import useScroll from "@/lib/client/hook/use-scroll";
 import Empty from "../box/empty";
+import Link from "next/link";
 
 type THeaderProps = ComponentPropsWithoutRef<"header">;
 
@@ -24,10 +25,14 @@ const Header = ({ className, ...props }: THeaderProps) => {
       )}
       {...props}
     >
-      <figure className="relative w-8 h-8">
-        <Image src="/logo.svg" alt="옥탑방 고양이 로고" layout="fill" />
-      </figure>
-      <h1 className="font-logo_font">RooftopCAT</h1>
+      <Link href="/">
+        <figure className="relative w-8 h-8 shrink-0">
+          <Image src="/logo.svg" alt="옥탑방 고양이 로고" fill />
+        </figure>
+      </Link>
+      <Link href="/">
+        <h1 className="font-logo_font">RooftopCAT</h1>
+      </Link>
       <ul
         className={clsx(
           "flex gap-2 transition-all",
