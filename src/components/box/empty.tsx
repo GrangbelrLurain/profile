@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 type TEmptyProps = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 const Empty = ({ children }: TEmptyProps) => {
