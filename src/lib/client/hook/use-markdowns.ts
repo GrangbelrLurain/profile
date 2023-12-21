@@ -14,21 +14,22 @@ type TResponse = {
   url: string;
 };
 
-type TData = {
-  response: TResponse[];
-};
-
 const fetcher = async () => {
-  const data = await fetch("/api/markdowns").then(async (req) => {
+  const data = await fetch(
+    "https://api.github.com/repos/GrangbelrLurain/rooftop-cat-md/contents"
+  ).then(async (req) => {
     const json = await req.json();
     return json;
   });
-  return data;
+  return data || [];
 };
 
 const useMarkdowns = () => {
-  const { data, error } = useSWR<TData>("/api/markdowns", fetcher);
-  const markdowns = data?.response.filter(({ name }) => name.includes("md"));
+  const { data, error } = useSWR<TResponse[]>(
+    "https://api.github.com/repos/GrangbelrLurain/rooftop-cat-md/contents",
+    fetcher
+  );
+  const markdowns = data?.filter(({ name }) => name.includes("md"));
   return { markdowns };
 };
 

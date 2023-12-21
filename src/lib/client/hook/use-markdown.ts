@@ -12,20 +12,25 @@ type TData = {
 };
 
 const fetcher = async (url: string) => {
-  const data = await fetch(`/api/markdowns/post?url=${url}`).then(
-    async (req) => {
-      const json = await req.json();
-      return json;
-    }
-  );
+  const data = await fetch(url).then(async (req) => {
+    const json = await req.json();
+    return json;
+  });
   return data;
 };
 
 const useMarkdown = (url: string) => {
-  const { data, error } = useSWR(`/api/markdowns/post${url}}`, () => {
+  const { data, error } = useSWR(url, () => {
     return fetcher(url);
   });
-  const post = data?.response;
+
+  let post: TPost | undefined;
+  if (data) {
+    const title = data.name;
+    const content = Buffer.from(data.content, data.encoding).toString("utf-8");
+    post = { title, content };
+  }
+
   return { post };
 };
 
