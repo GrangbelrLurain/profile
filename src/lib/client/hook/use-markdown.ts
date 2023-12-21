@@ -25,7 +25,7 @@ const useMarkdown = (url: string) => {
   });
 
   let post: TPost | undefined;
-  if (data) {
+  if (data && data.name && data.content && data.encoding) {
     const title = data.name;
     const content = Buffer.from(data.content, data.encoding).toString("utf-8");
     post = { title, content };

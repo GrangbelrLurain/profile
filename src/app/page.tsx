@@ -43,7 +43,7 @@ export default function Home() {
         <article className="flex flex-col gap-2">
           {markdowns?.map(({ name, sha }) => {
             return (
-              <Link key={sha} href={`/blog/${name}`}>
+              <Link key={sha} href={`/blog/post?postUrl=${name}`}>
                 <p className="px-5 py-2 rounded-md bg-gray-500 bg-opacity-50">
                   {name}
                 </p>

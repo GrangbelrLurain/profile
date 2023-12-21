@@ -1,11 +1,11 @@
 "use client";
 import Container from "@/components/container";
 import useMarkdown from "@/lib/client/hook/use-markdown";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const BlogPost = () => {
-  const params = useParams();
-  const postUrl = String(params.postUrl);
+  const params = useSearchParams();
+  const postUrl = String(params.get("postUrl"));
   const { post } = useMarkdown(
     `https://api.github.com/repos/GrangbelrLurain/rooftop-cat-md/contents/${postUrl}`
   );
