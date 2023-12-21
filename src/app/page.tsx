@@ -1,28 +1,37 @@
 "use client";
 import Container from "@/components/container";
 import useMarkdowns from "@/lib/client/hook/use-markdowns";
+import { portfolio, TPortfolio } from "@/lib/client/portfolio";
+import Image from "next/image";
 import Link from "next/link";
 import useSWR from "swr";
 
 export default function Home() {
   const { markdowns } = useMarkdowns();
-  console.log(markdowns);
+
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 py-5">
       <Container className="w-full">
         <h2 className="font-logo_font">PORTFOLIO</h2>
         <article className="grid grid-cols-4 gap-5">
-          <div className="aspect-square bg-white rounded-md shrink"></div>
-          <div className="aspect-square bg-white rounded-md shrink"></div>
-          <div className="aspect-square bg-white rounded-md shrink"></div>
-          <div className="aspect-square bg-white rounded-md shrink"></div>
+          {Object.values(portfolio).map(({ href, thumbnail }) => (
+            <Link key={href} href={href} target="_blank">
+              <div className="aspect-square rounded-md shrink relative overflow-hidden">
+                <Image
+                  src={thumbnail}
+                  alt={`${href} 페이지의 썸네일입니다.`}
+                  className="object-cover"
+                  fill
+                />
+              </div>
+            </Link>
+          ))}
         </article>
       </Container>
       <Container className="w-full">
         <h2 className="font-logo_font">intro</h2>
         <p>안녕하세요, 개발팀 옥탑방 고양이입니다.</p>
       </Container>
-      <Container>{}</Container>
       {/* <Container className="w-full">
         <h2></h2>
         <article className="grid grid-cols-3 gap-5">
