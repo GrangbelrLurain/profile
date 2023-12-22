@@ -1,31 +1,40 @@
 "use client";
+import Empty from "@/components/box/empty";
 import Container from "@/components/container";
 import useMarkdowns from "@/lib/client/hook/use-markdowns";
-import { portfolio, TPortfolio } from "@/lib/client/portfolio";
-import Image from "next/image";
+import { portfolio } from "@/lib/client/portfolio";
 import Link from "next/link";
-import useSWR from "swr";
 
 export default function Home() {
   const { markdowns } = useMarkdowns();
 
   return (
     <div className="flex flex-col gap-5 py-5">
+      {/* <Container>
+        <button className="btn font-bold">웹 개발 의뢰하기</button>
+      </Container> */}
       <Container className="w-full">
         <h2 className="font-logo_font">PORTFOLIO</h2>
         <article className="grid grid-cols-4 gap-5">
-          {Object.values(portfolio).map(({ href, thumbnail }) => (
-            <Link key={href} href={href} target="_blank">
-              <div className="aspect-square rounded-md shrink relative overflow-hidden">
-                <Image
-                  src={thumbnail}
-                  alt={`${href} 페이지의 썸네일입니다.`}
-                  className="object-cover"
-                  fill
-                />
-              </div>
-            </Link>
-          ))}
+          {Object.values(portfolio).map(({ href, thumbnail }, index) => {
+            if (index > 3) {
+              return <Empty key={href} />;
+            }
+            return (
+              <Link key={href} href={href} target="_blank">
+                <div className="aspect-square rounded-md shrink relative overflow-hidden">
+                  {
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={thumbnail}
+                      alt={`${href} 페이지의 썸네일입니다.`}
+                      className="object-cover absolute w-full h-full"
+                    />
+                  }
+                </div>
+              </Link>
+            );
+          })}
         </article>
       </Container>
       <Container className="w-full">

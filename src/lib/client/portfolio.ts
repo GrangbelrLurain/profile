@@ -6,28 +6,34 @@ export type TPortfolio = {
 };
 
 export const portfolio: TPortfolio = {
-  lastProfile: {
-    href: "https://jolly-bose-812bd6.netlify.app/",
-    thumbnail: "/image/last_profile.png",
-  },
-  cat_supporters: {
-    href: "https://catsuporters.netlify.app/",
-    thumbnail: "/image/cat_supporters.png",
-  },
-  choco_rocher: {
-    href: "https://chocorocher.netlify.app/",
-    thumbnail: "/image/choco_rocher.png",
-  },
-  hotel: {
-    href: "https://hotelgrandiris.netlify.app/",
-    thumbnail: "/image/hotel.png",
+  media_moment: {
+    href: "https://grangbelrlurain.github.io/mediaMoment/",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/media_moment.png",
   },
   company: {
     href: "https://superlative-kataifi-1086de.netlify.app/#company",
-    thumbnail: "/image/company.png",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/company.png",
   },
-  media_moment: {
-    href: "https://grangbelrlurain.github.io/mediaMoment/",
-    thumbnail: "/image/media_moment.png",
+  hotel: {
+    href: "https://hotelgrandiris.netlify.app/",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/hotel.png",
+  },
+  cat_supporters: {
+    href: "https://catsuporters.netlify.app/",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/cat_supporters.png",
+  },
+  choco_rocher: {
+    href: "https://chocorocher.netlify.app/",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/choco_rocher.png",
+  },
+  lastProfile: {
+    href: "https://jolly-bose-812bd6.netlify.app/",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/last_profile.png",
   },
 };
