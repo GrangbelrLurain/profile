@@ -41,8 +41,6 @@ const Header = ({ className, ...props }: THeaderProps) => {
         <li>
           <Link href="/portfolio">포트폴리오</Link>
         </li>
-        <li>팀 소개</li>
-        <li>문의하기</li>
       </ul>
       <label
         htmlFor="main-drawer"

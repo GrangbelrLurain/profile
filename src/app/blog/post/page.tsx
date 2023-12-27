@@ -16,7 +16,9 @@ const BlogPost = () => {
   return (
     <Container className="flex flex-col gap-2 py-5">
       <h2 className="font-bold text-3xl text-primary">{post.title}</h2>
-      <MarkdownReader className="max-w-3xl">{post.content}</MarkdownReader>
+      <MarkdownReader className="max-w-3xl flex flex-col gap-4 py-4">
+        {post.content}
+      </MarkdownReader>
     </Container>
   );
 };
