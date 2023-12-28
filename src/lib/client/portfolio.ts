@@ -13,6 +13,18 @@ export const portfolio: TPortfolio = {
       "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/shopfanpick.png",
     particle: 40,
   },
+  shopfanpick_admin: {
+    href: "https://admin-next.shopfanpick.com/sign-in",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/shopfanpick_admin.png",
+    particle: 33,
+  },
+  shopfanpick_studio: {
+    href: "https://studio.shopfanpick.com/auth/signin",
+    thumbnail:
+      "https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/shopfanpick_studio.png",
+    particle: 25,
+  },
   media_moment: {
     href: "https://grangbelrlurain.github.io/mediaMoment/",
     thumbnail:

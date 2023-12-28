@@ -29,7 +29,7 @@ const PortpolioLink = ({
           <span className="font-logo_font whitespace-nowrap">
             Project {title}
           </span>
-          <span>Participation {particle}%</span>
+          <span className="text-xs">Participation {particle}%</span>
         </p>
         {
           // eslint-disable-next-line @next/next/no-img-element
