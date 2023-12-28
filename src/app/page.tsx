@@ -1,6 +1,7 @@
 "use client";
 import Empty from "@/components/box/empty";
 import Container from "@/components/container";
+import PortpolioLink from "@/components/portpolio/portpolio-link";
 import useMarkdowns from "@/lib/client/hook/use-markdowns";
 import { portfolio } from "@/lib/client/portfolio";
 import Link from "next/link";
@@ -13,31 +14,30 @@ export default function Home() {
       {/* <Container>
         <button className="btn font-bold">웹 개발 의뢰하기</button>
       </Container> */}
-      <Container className="w-full">
+      <Container className="w-full px-5">
         <h2 className="font-logo_font">PORTFOLIO</h2>
-        <article className="grid grid-cols-4 gap-5">
-          {Object.values(portfolio).map(({ href, thumbnail }, index) => {
-            if (index > 3) {
-              return <Empty key={href} />;
+        <article className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
+          {Object.entries(portfolio).map(
+            ([title, { href, thumbnail, particle }], index) => {
+              if (index > 3) {
+                return <Empty key={href} />;
+              }
+              return (
+                <PortpolioLink
+                  key={href}
+                  href={href}
+                  title={title}
+                  particle={particle}
+                  src={thumbnail}
+                  target="_blank"
+                  className="aspect-square rounded-lg"
+                />
+              );
             }
-            return (
-              <Link key={href} href={href} target="_blank">
-                <div className="aspect-square rounded-md shrink relative overflow-hidden">
-                  {
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={thumbnail}
-                      alt={`${href} 페이지의 썸네일입니다.`}
-                      className="object-cover absolute w-full h-full"
-                    />
-                  }
-                </div>
-              </Link>
-            );
-          })}
+          )}
         </article>
       </Container>
-      <Container className="w-full">
+      <Container className="w-full px-5">
         <h2 className="font-logo_font">intro</h2>
         <p>안녕하세요, 개발팀 옥탑방 고양이입니다.</p>
       </Container>
@@ -56,7 +56,7 @@ export default function Home() {
           <button className="btn">문의하기</button>
         </article>
       </Container> */}
-      <Container className="w-full">
+      <Container className="w-full px-5">
         <h2 className="font-logo_font">blog</h2>
         <article className="flex flex-col gap-2">
           {markdowns?.map(({ name, sha }) => {
