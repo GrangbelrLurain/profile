@@ -16,7 +16,14 @@ export default function Home() {
         <h2 className="font-logo_font">Profile</h2>
         <article className="flex gap-5">
           <figure className="relative w-40 h-40 rounded-full overflow-hidden">
-            <Image src="/image/profile.jpg" alt="프로필 이미지" fill />
+            {
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src="https://raw.githubusercontent.com/GrangbelrLurain/profile/master/public/image/profile.jpg"
+                alt="프로필 이미지"
+                className="object-cover absolute w-full h-full"
+              />
+            }
           </figure>
           <div className="pt-5">
             <table className="h-fit">
