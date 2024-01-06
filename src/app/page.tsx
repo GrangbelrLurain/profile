@@ -12,9 +12,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-5 py-5">
-      <Container className="w-full px-5">
+      <Container className="w-full max-w-screen-xl px-5">
         <h2 className="font-logo_font">Profile</h2>
-        <article className="flex gap-5">
+        <article className="flex gap-5 sm:flex-row flex-col items-center">
           <figure className="relative w-40 h-40 rounded-full overflow-hidden">
             {
               // eslint-disable-next-line @next/next/no-img-element
@@ -25,36 +25,40 @@ export default function Home() {
               />
             }
           </figure>
-          <div className="pt-5">
-            <table className="h-fit">
-              <tbody>
-                <tr>
-                  <th className="font-logo_font text-xs w-16 text-left">
-                    name
-                  </th>
-                  <td>김규연</td>
-                </tr>
-                <tr>
-                  <th className="font-logo_font text-xs text-left">mail</th>
-                  <td>lurain003@gmail.com</td>
-                </tr>
-                <tr>
-                  <th className="font-logo_font text-xs text-left">github</th>
-                  <td>
-                    <a
-                      href="https://github.com/GrangbelrLurain"
-                      className="link"
-                    >
-                      https://github.com/GrangbelrLurain
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="sm:pt-5 self-start w-full">
+            <div className="flex items-center">
+              <p className="font-logo_font text-xs w-16 text-left shrink-0">
+                name
+              </p>
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap">
+                김규연
+              </p>
+            </div>
+            <div className="flex items-center">
+              <p className="font-logo_font w-16 text-xs text-left shrink-0">
+                mail
+              </p>
+              <a
+                href="mailto:lurain003@gmail.com"
+                className="overflow-hidden text-ellipsis whitespace-nowrap link"
+              >
+                lurain003@gmail.com
+              </a>
+            </div>
+            <div className="flex items-center w-full">
+              <p className="font-logo_font w-16 text-xs text-left shrink-0">
+                github
+              </p>
+              <p className="overflow-hidden text-ellipsis whitespace-nowrap">
+                <a href="https://github.com/GrangbelrLurain" className="link">
+                  https://github.com/GrangbelrLurain
+                </a>
+              </p>
+            </div>
           </div>
         </article>
       </Container>
-      <Container className="w-full px-5">
+      <Container className="w-full max-w-screen-xl px-5">
         <h2 className="font-logo_font">intro</h2>
         <h3 className="font-bold text-lg">1년 차 웹 개발자 김규연입니다.</h3>
         <p className="whitespace-pre-line">{`기존 회사에 퍼블리셔로 입사하여 프론트엔드 백엔드를 가리지 않고 도전, 바닐라 JS로 시작하여 풀스택 개발자로 퇴사하였습니다.
@@ -89,7 +93,7 @@ export default function Home() {
  - ThreeJS / Animate 등 다양한 프론트엔드 기술에 도전
 `}</p>
       </Container>
-      <Container className="w-full px-5">
+      <Container className="w-full max-w-screen-xl px-5">
         <h2 className="font-logo_font">PORTFOLIO</h2>
         <article className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
           {Object.entries(portfolio).map(
@@ -112,7 +116,7 @@ export default function Home() {
           )}
         </article>
       </Container>
-      <Container className="w-full px-5">
+      <Container className="w-full max-w-screen-xl px-5">
         <h2 className="font-logo_font">blog</h2>
         <article className="flex flex-col gap-2">
           {markdowns?.map(({ name, sha }) => {
@@ -128,21 +132,17 @@ export default function Home() {
       </Container>
       <Container className="w-full px-5">
         <h2 className="font-logo_font">legacy</h2>
-        <table className="h-fit">
-          <tbody>
-            <tr>
-              <th className="font-logo_font text-xs w-16 text-left">notion</th>
-              <td>
-                <a
-                  className="link"
-                  href="https://standing-hugger-2fb.notion.site/7299892e25e54e59916712e7e9a31942?v=535ab28a08d145e8b8aafa947798bc13"
-                >
-                  https://standing-hugger-2fb.notion.site/7299892e25e54e59916712e7e9a31942?v=535ab28a08d145e8b8aafa947798bc13
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="flex gap-5 items-center">
+          <p className="font-logo_font text-xs w-16 text-left">notion</p>
+          <p className="overflow-hidden text-ellipsis whitespace-nowrap">
+            <a
+              className="link"
+              href="https://standing-hugger-2fb.notion.site/7299892e25e54e59916712e7e9a31942?v=535ab28a08d145e8b8aafa947798bc13"
+            >
+              https://standing-hugger-2fb.notion.site/7299892e25e54e59916712e7e9a31942?v=535ab28a08d145e8b8aafa947798bc13
+            </a>
+          </p>
+        </div>
       </Container>
     </div>
   );
