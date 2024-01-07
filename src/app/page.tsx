@@ -15,7 +15,7 @@ export default function Home() {
       <Container className="w-full max-w-screen-xl px-5">
         <h2 className="font-logo_font">Profile</h2>
         <article className="flex gap-5 sm:flex-row flex-col items-center">
-          <figure className="relative w-40 h-40 rounded-full overflow-hidden">
+          <figure className="relative w-40 h-40 rounded-full overflow-hidden shrink-0 aspect-square">
             {
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -96,24 +96,22 @@ export default function Home() {
       <Container className="w-full max-w-screen-xl px-5">
         <h2 className="font-logo_font">PORTFOLIO</h2>
         <article className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-          {Object.entries(portfolio).map(
-            ([title, { href, thumbnail, particle }], index) => {
-              if (index > 3) {
-                return <Empty key={href} />;
-              }
-              return (
-                <PortpolioLink
-                  key={href}
-                  href={href}
-                  title={title}
-                  particle={particle}
-                  src={thumbnail}
-                  target="_blank"
-                  className="aspect-square rounded-lg"
-                />
-              );
+          {portfolio.map(({ title, href, thumbnail, particle }, index) => {
+            if (index > 3) {
+              return <Empty key={href} />;
             }
-          )}
+            return (
+              <PortpolioLink
+                key={href}
+                href={{ pathname: "/portfolio", query: { index } }}
+                title={title}
+                particle={particle}
+                src={thumbnail}
+                target="_self"
+                className="aspect-square rounded-lg"
+              />
+            );
+          })}
         </article>
       </Container>
       <Container className="w-full max-w-screen-xl px-5">
